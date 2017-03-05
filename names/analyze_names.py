@@ -47,7 +47,7 @@ all_pct.to_csv('first_name_pct.csv', index = False)
 
 print "Getting data"
 
-data = pd.read_csv('census-2000-surnames/app_c.csv')
+data = pd.read_csv('census-2010-surnames/Names_2010Census.csv')
 data["last_name"] = [x.lower() if type(x) is not float else "" for x in data["name"]]
 data = data[data["last_name"] != ""]
 data = data[["last_name", "pctwhite", "pctblack", "pctapi", "pctaian", "pct2prace", "pcthispanic"]]
