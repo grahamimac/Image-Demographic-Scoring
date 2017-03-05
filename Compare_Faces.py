@@ -10,6 +10,7 @@ import numpy as np
 import json
 import multiprocessing
 import operator
+from PIL import Image
 
 def score_face(file):
 	print("Processing file: {}".format(file))
@@ -50,7 +51,14 @@ if __name__ == '__main__':
 	f = open('CFD values.json', 'r')
 	data = json.load(f)
 
-	faces = glob.glob(os.path.join(face_path + "*.jpg"))
+	for file in glob.glob(os.path.join(face_path + '*')):
+		extension = file.split('.')[-1].lower()
+		if extension not in ['jpg', 'jpeg']:
+			im = Image.open(file)
+			im.save(file.split('.' + extension)[0] + '.jpg')
+			os.remove(file)
+
+	faces = glob.glob(os.path.join(face_path + "*.jpg")) + glob.glob(os.path.join(face_path + "*.jpeg"))
 
 	p = multiprocessing.Pool(2)
 	faces = p.map(score_face, faces)
