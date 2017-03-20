@@ -14,7 +14,7 @@ You'll get a list of tuples, with lower scores being the most likely assignment 
 
 ## Running Deep Learning Age Prediction
 
-Deep learning age prediction uses the pre-trained IMDB-Wiki model from https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/ - you'll first need to install dlib and caffe, and download the caffemodel file https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/static/dex_imdb_wiki.caffemodel that's too big to put on Github. Place any number of images in the imdb-wiki folder, and run classify.py. The algorithm uses the average image from ImageNet, so it may not be as accurate for this model, but the authors do not provide the average image from the model where I got the caffemodel.
+Deep learning age prediction uses the pre-trained IMDB-Wiki model from https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/ - you'll first need to install dlib and caffe, and download the caffemodel file https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/static/dex_imdb_wiki.caffemodel that's too big to put on Github. Place any number of images in the imdb-wiki folder, and run classify.py. The algorithm uses the average image from ImageNet, so it may not be as accurate for this model, but the authors do not provide the average image from the model.
 
 ``` bash
 python classify.py
