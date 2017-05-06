@@ -20,7 +20,7 @@ print("Starting Basic Classifier")
 net = caffe.Classifier(proto, model, caffe.TEST)
 
 print("Setting up transform")
-mu = np.array([111.47710628057908, 94.57594005191616, 84.77318938524172]) # IMDB Mean
+mu = np.array([111.47710628057908, 94.57594005191616, 84.77318938524172]) # IMDB-Wiki Mean
 transformer = caffe.io.Transformer({'data': net.blobs['data'].data.shape})
 transformer.set_transpose('data', (2,0,1))  # move image channels to outermost dimension
 transformer.set_mean('data', mu)            # subtract the dataset-mean value in each channel
